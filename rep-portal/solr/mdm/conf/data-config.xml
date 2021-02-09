@@ -1,0 +1,25 @@
+<dataConfig>
+<dataSource type="JdbcDataSource"
+            driver="com.mysql.jdbc.Driver"
+            url="jdbc:mysql://mdm.live.jeg.domain:3306/jaycar"
+            user="php"
+            password="php4user%%"
+			batchSize="20"/>
+<document>
+  <entity name="products"
+    pk="PK"
+    query="select p.PK as PK, p.modifiedTS as p_modifiedTS, p.Code as p_code, group_concat(f.p_stringvalue) as p_barcodes, p.p_prodbarcodeprimary as p_prodbarcodeprimary, p.p_proddescmarket as p_proddescmarket, COALESCE(p.p_imgmain,'') as p_imgmain, COALESCE(p.p_copyretail,'') as p_copyretail from products as p join productfeatures as f on p.PK = f.p_product where p_catalogversion = '8796093284953' and upper(f.p_qualifier) like UPPER('%PROD_BARCODE%')"
+    deltaImportQuery="select p.PK as PK, p.modifiedTS as p_modifiedTS, p.Code as p_code, group_concat(f.p_stringvalue) as p_barcodes, p.p_prodbarcodeprimary as p_prodbarcodeprimary, p.p_proddescmarket as p_proddescmarket, COALESCE(p.p_imgmain,'') as p_imgmain, COALESCE(p.p_copyretail,'') as p_copyretail from products as p join productfeatures as f on p.PK = f.p_product where p_catalogversion = '8796093284953' and upper(f.p_qualifier) like UPPER('%PROD_BARCODE%') and PK='${dih.delta.id}'"
+    deltaQuery="SELECT PK FROM products  where p_catalogversion = '8796093284953' and updated_at > '${dih.last_index_time}'"
+    >
+     <field column="PK" name="id"/>
+     <field column="p_code" name="code"/>
+	   <field column="p_proddescmarket" name="proddescmarket"/>
+     <field column="p_prodbarcodeprimary" name="prodbarcodeprimary"/>
+     <field column="p_barcodes" name="barcodes"/>
+     <field column="p_imgmain" name="imgmain"/>
+	   <field column="p_copyretail" name="copyretail"/>
+     <field column="p_modifiedTS" name="modifiedTS"/>
+  </entity>
+</document>
+</dataConfig>

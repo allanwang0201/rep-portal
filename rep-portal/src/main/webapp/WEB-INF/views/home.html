@@ -1,0 +1,21 @@
+
+<div class="scrollable" style="height: 75%; padding-bottom: 20px;">
+	<div class="scrollable-content">
+		<div class="section" style="height: 100%;">
+			<div ng-show="isShow" class="form-inline form-group">
+				<label>Sort by:</label> <select class="form-control" style="width:20%"
+					ng-model="placement.selected"
+					ng-options="o as o for o in placement.options" ng-change="sortChanged()"></select>
+			</div>
+
+			<span ng-bind-html="searchResults|htmlContent"></span>
+			<div ng-show="isShow" id="pagination" ng-controller="PaginationDemoCtrl">
+				<ul uib-pagination total-items="bigTotalItems"
+					ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm"
+					boundary-links="true" force-ellipses="true"
+					ng-change="pageChanged()"></ul>
+			</div>
+		</div>
+	</div>
+</div>
+

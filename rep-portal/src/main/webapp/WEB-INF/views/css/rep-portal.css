@@ -1,0 +1,246 @@
+
+#lightbulb {
+  font-size: 100px;
+  display: block;
+  text-align: center;
+}
+
+h1 {
+  padding: 0;
+  margin: 10px 0;
+}
+
+.chat-user-avatar {
+  font-size: 40px;
+  background: #ccc;
+  padding: 5px 10px;
+}
+
+.feature-icon {
+  font-size: 44px;
+  padding: 0;
+  line-height: 68px;
+  width: 72px;
+  text-align: center;
+  opacity: .8;
+  border: 3px solid;
+  border-radius: 200px;
+  height: 72px;
+  margin-bottom: 20px;
+}
+
+.feature-icon.fa-gamepad {
+  line-height: 60px;
+}
+
+.feature-icon.fa-tachometer {
+  line-height: 60px;
+}
+
+.app-content-loading {
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  position: relative;
+}
+
+.loading-spinner {
+  position: absolute;
+  font-size: 50px;
+  left: 50%;
+  top: 50%;
+  margin-left: -25px;
+  margin-top: -25px;
+}
+
+.carousel-example-content {
+  position: absolute;
+  font-size: 50px;
+  line-height: 50px;
+  width: 100%;
+  text-align: center;
+  top: 50%;
+  margin-top: -50px;
+}
+
+
+.carousel-item {
+  display: block;
+  color: #444;
+  background: #f4f4f4;
+  box-shadow: 0px 0px 3px rgba(0,0,0,0.5);
+  -webkit-transition: opacity 0.3s;
+  -moz-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  opacity: 1;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+.carousel {
+  padding: 20px;
+  overflow: visible;
+}
+
+.carousel-inner {
+  position: relative;
+  overflow: visible;
+}
+
+.carousel>.item, .carousel-item {
+  top: 0;
+  left: 0;
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+.carousel-item {
+  -webkit-transition: -webkit-transform 500ms;
+  -moz-transition: -moz-transform 500ms;
+  transition: transform 500ms;
+}
+
+[drag-to-dismiss]{
+  transform: translate(0,0); /* NOTE: this is required to prevent mobile webkit issues */
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: opacity 300ms, -webkit-transform 300ms;
+  -moz-transition: opacity 300ms, -moz-transform 300ms;
+  transition: opacity 300ms, transform 300ms;
+  opacity: 1;
+}
+
+.notices-container {
+  overflow-x: hidden;
+}
+
+.dismiss {
+  -webkit-transition: opacity 300ms, -webkit-transform 300ms;
+  -moz-transition: opacity 300ms, -moz-transform 300ms;
+  transition: opacity 300ms, transform 300ms;
+  opacity: 0.5;
+}
+
+.dismitted {
+  -webkit-transition: opacity 300ms, -webkit-transform 300ms;
+  -moz-transition: opacity 300ms, -moz-transform 300ms;
+  transition: opacity 300ms, transform 300ms;
+  opacity: 0;
+}
+
+.list-group-item-home {
+  padding: 20px;
+}
+
+.pad-adjusted {
+	padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+pre {
+  text-align: left !important;
+}
+
+input.scrollable-header {
+  border-bottom: 3px solid #ccc;
+}
+
+.toucharea {width: 100%; height: 100%;}
+
+.touch-mark {
+  position: absolute;
+  background-color: #ccc;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  margin-top: -15px;
+  margin-left: -15px;
+  opacity: .5;
+  transform: scale(1, 1);
+}
+
+
+.hyAU,.hyNZ,.hyUK,.hyUS,.hyCA,.hyTBAU,.hyTBNZ,.hyRTMAU,.hyRTMAUWS,.hySNRAU,.hySNRNZ
+{
+width:175px;
+min-height:170px;
+margin-left:2px;	
+border:solid 1px #CCCCCC;
+line-height:25px;
+font-size:11px;
+
+}
+.ARAU,.ARNZ,.ARRTM
+{
+width:175px;
+height:170px;
+margin-left:2px;	
+border:solid 1px #CCCCCC;
+line-height:25px;
+background-color:#f4e6e6;
+font-size:11px;
+
+}
+.ARAU_special,.ARNZ_special,.ARRTM_special
+{
+width:175px;
+height:120px;
+margin-left:2px;	
+border:solid 1px #CCCCCC;
+line-height:25px;
+background-color:#c9e6f7;
+font-size:11px;
+
+}
+.hyAU div,.hyNZ div, .hyUK div,.hyUS div,
+ .hyCA div, .hyTBAU div, 
+ .hyTBNZ div,.hyRTMAU div,.ARAU div,.hyRTMAUWS div,
+ .ARNZ div,.ARRTM div,.ARAU_special div,
+ .ARNZ_special div,.ARRTM_special div,.hySNRAU div,.hySNRNZ div
+{
+padding-left:5px;	
+
+}
+.hyAU:hover,.hyNZ:hover,.hyUK:hover,.hyUS:hover,.hyCA:hover,.hyTBAU:hover,.hyTBNZ:hover,.hyRTMAU:hover
+,.ARAU:hover,.ARNZ:hover,.ARRTM:hover
+{
+	border:solid 1px #000000;
+}
+.hyAU{background-color:#e0f7cd;}
+.hyNZ{background-color:#dadada;}
+.hyUK{background-color:#e6e9f3;}
+.hyUS{background-color:#e6e9f3;}
+.hyCA{background-color:#e6e9f3;}
+.hySNRAU{background-color:#d6ecf2;}
+.hySNRNZ{background-color:#d6ecf2;}
+
+
+
+.hyTBNZ
+{
+background-color:#e3e8ec;	
+
+}
+
+
+.hyRTMAU { background-color:#dedbdb;}
+.hyRTMAUWS { background-color:#c8dde8;}
+.countryDefine
+{
+font-size:13px;
+font-weight:bold;	
+}

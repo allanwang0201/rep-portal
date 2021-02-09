@@ -1,0 +1,28 @@
+
+ 
+
+<div class="scrollable" style="height:75%;padding-bottom: 20px;">
+  <div class="scrollable-content">
+    <div class="section" style="height:100%;" >
+      <div class="panel-group" ui-shared-state="myAccordion" ui-default='0'>
+
+        <div class="panel panel-default" ng-repeat="i in [5]">
+          <div class="panel-heading" ui-set="{'myAccordion': i}">
+        
+            <h4 class="panel-title">
+                <p ng-if="i == 5">Similar Prodocts</p>
+
+            </h4>
+          </div>
+          <div class="panel-body">
+
+               	<p ng-if="i == 5"><span ng-bind-html="similarProducts|htmlContent"></span></p>
+
+   
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

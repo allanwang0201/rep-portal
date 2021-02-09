@@ -1,0 +1,521 @@
+@charset "utf-8";
+
+
+.warehouseSelected {
+	font-weight：bold;
+	font-size：30px;
+}
+
+
+/* A:link {text-decoration: none;color: #004444;}
+A:visited {text-decoration: none;color: #004444;}
+A:active {text-decoration: none;color: #234444;}
+A:hover {text-decoration: none;color: #00aaaa;} */
+
+/* html {
+	min-height:100%;
+	margin:0px; 
+	padding:0px;
+	height:100%;
+} */
+
+
+/* pricing  {
+	font-family:Verdana,Arial,Sans-Serif;
+	background: #A1A1A1;
+	margin: 0; it's good practice to zero the margin and padding of the body element to account for differing browser defaults
+	padding: 0;
+	text-align: center; this centers the container in IE 5* browsers. The text is then set to the left aligned default in the #container selector
+	color: #000000;
+	min-height:100%;
+	height:100%;
+}  */
+
+.bhpage #container {
+	width: 930px;  
+	background: #FFFFFF;
+	margin: 0 auto; /* the auto margins (in conjunction with a width) center the page */
+	border: 1px solid #000000;
+	text-align: left; /* this overrides the text-align: center on the body element. */
+	min-height:100%;
+	height:100%;
+	position:relative;
+	height:auto!important;
+} 
+
+.bhpage #header_top { 
+	height: 70px;
+	background-image: url(image/iteminfonew.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	background-color: #DDDDEE;
+
+	font-family:Verdana,Arial,Sans-Serif;
+	font-size:0.7em;
+	font-size-adjust:none;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height:normal;
+
+	padding: 0px 10px;
+
+} 
+
+.bhpage #loginbox {
+	padding-left: 80px;
+	padding-top: 80px;
+	padding-right: 80px;
+	padding-bottom: 80px;
+	text-align: center;
+}
+
+.bhpage #header_bottom { 
+	height: 20px;
+	background-color: #9595A1;
+
+	font-family:Verdana,Arial,Sans-Serif;
+	font-size:0.9em;
+	font-size-adjust:none;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height:normal;	
+	text-align: center;
+	color: #ffffff;
+} 
+
+.bhpage #header_top A:link {text-decoration: none;color: #eeeeee;}
+.bhpage #header_top A:visited {text-decoration: none;color: #eeeeee;}
+.bhpage #header_top A:active {text-decoration: none;color: #eeeeee;}
+.bhpage #header_top A:hover {text-decoration: none;color: #00eeee;}
+
+.bhpage #header_bottom A:link {text-decoration: none;color: #ffffff;}
+.bhpage #header_bottom A:visited {text-decoration: none;color: #ffffff;}
+.bhpage #header_bottom A:active {text-decoration: none;color: #ffffff;}
+.bhpage #header_bottom A:hover {text-decoration: none;color: #5555ff;}
+
+
+.bhpage #mainContent {
+	margin: 0 0 0 0px; /* the left margin on this div element creates the column down the left side of the page - no matter how much content the sidebar1 div contains, the column space will remain. You can remove this margin if you want the #mainContent div's text to fill the #sidebar1 space when the content in #sidebar1 ends. */
+	padding: 0 10px; /* remember that padding is the space inside the div box and margin is the space outside the div box */
+	overflow:auto; /* so container expands with content */
+} 
+
+
+
+.bhpage #footer { 
+	height: 17px;
+	background-color: #9595A1;
+	background-repeat: no-repeat;
+	background-position: left bottom;
+
+	font-family:Verdana,Arial,Sans-Serif;
+	font-size:0.6em;
+	font-size-adjust:none;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height:normal;
+	color: #ffffff;
+} 
+
+.bhpage #footer p {
+	margin: 0; /* zeroing the margins of the first element in the footer will avoid the possibility of margin collapse - a space between divs */
+	padding: 10px 0; /* padding on this element will create space, just as the the margin would have, without the margin collapse issue */
+}
+
+.fltrt { /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* this class can be used to float an element left in your page */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* this class should be placed on a div or break element and should be the final element before the close of a container that should fully contain a float */
+	clear:both;
+    height:0;
+    font-size: 1px;
+    line-height: 0px;
+}
+pre {
+   font-family: Verdana,"courier new", courier, monospace;
+   font-size: 12px;
+   
+   white-space: -moz-pre-wrap; /* Mozilla, supported since 1999 */
+    white-space: -pre-wrap; /* Opera */
+    white-space: -o-pre-wrap; /* Opera */
+    white-space: pre-wrap; /* CSS3 - Text module (Candidate Recommendation) http://www.w3.org/TR/css3-text/#white-space */
+    word-wrap: break-word; /* IE 5.5+ */
+}
+h1, h2, h3 {
+	dispaly:block
+	font-family: Arial,Verdana,Sans-Serif;
+	}
+
+h1 {
+	margin: 0;
+	font-size:20px;
+	}
+
+h2 {
+	dispaly:block
+	font-size:18px;
+	}
+
+h2.pagetitle {
+	dispaly:block
+	text-align: center;
+}
+
+h3 {
+	padding: 0;
+
+	font-size:14px;
+
+	}
+
+.thumbholder
+{
+	width:169px;
+	height:180px;
+	display: block;
+	margin: 0 auto;	
+	float:left;
+	border:solid 1px #CCCCCC;
+	text-align:center;
+	 line-height: 180px;
+}
+.thumbholder img
+{
+	vertical-align: middle;
+}
+.imgHolder
+{
+width:910px;
+height:100%;	
+}
+
+.smallfont{
+font-family:Verdana, tahoma,arial,sans-serif;
+font-size:10px;	
+}
+/*menu css*/
+
+.bluetabs{
+/*border-bottom: 1px solid gray;*/
+}
+
+.bluetabs ul{
+padding: 3px 0;
+margin-left: 0;
+margin-top: 0;
+margin-bottom: 0;
+font: bold 12px Verdana;
+list-style-type: none;
+text-align: center; /*set to left, center, or right to align the menu as desired*/
+}
+
+.bluetabs li{
+display: inline;
+margin: 0;
+}
+
+.bluetabs li a{
+text-decoration: none;
+padding: 1px 10px;
+margin-right: 3px;
+border: 1px solid #778;
+color: #2d2b2b;
+background-color: #9595A1;
+}
+
+.bluetabs li a:visited{
+color: #2d2b2b;
+}
+
+.bluetabs li a:hover
+{
+	text-decoration: underline;
+	color:#2d2b2b;
+}
+
+.bluetabs li.selected{
+}
+
+.bluetabs li.selected a{ /*selected main tab style */
+border-bottom-color: white;
+}
+
+.bluetabs li.selected a:hover{ /*selected main tab style */
+text-decoration: none;
+}
+
+/* ######### Style for Drop Down Menu ######### */
+
+.dropmenudiv_b{
+position:absolute;
+top: 0;
+border: 1px solid #000000; 
+border-width: 0 1px;
+font:normal 12px Verdana;
+line-height:18px;
+z-index:100;
+background-color: #9595A1;
+width: 100px;
+visibility: hidden;
+color: #000000;
+}
+
+
+.dropmenudiv_b a{
+width: auto;
+display: block;
+text-indent: 5px;
+border: 0 solid #000000; 
+border-bottom-width: 1px;
+padding: 2px 0;
+text-decoration: none;
+color: #000000;
+}
+
+* html .dropmenudiv_b a{ /*IE only hack*/
+width: 100%;
+}
+
+.dropmenudiv_b a:hover{ 
+background-color: #edf3f3;
+}
+#mdmnewForm
+{
+background-color:#FFF;	
+font-family:Verdana, Geneva, sans-serif;
+color:#505050;
+
+margin-top:10px;
+width:900px;
+}
+.headerGlobals
+{
+	text-align:right;
+	float:right;
+}
+.headerGlobals span
+{
+font-weight:bold;
+color:#000;	
+}
+.mdmtextContainer
+{
+ float:left;
+ width:100%;	
+ font-family:Verdana, Geneva, sans-serif;
+ font-size:11px;
+ color:#555555;
+ clear:both;
+
+}
+.subTContainer
+{
+	width:180px;
+	float:left;	
+	
+}
+.inputContainer
+{
+	width:210px;
+	float:left;
+	
+}
+.butContainer
+{
+
+width:100%;	
+}
+/*'''''REPORTS phP FILE */
+#report_results
+{
+ width:660px;
+ height:100%;
+ min-height:100%;
+ 
+}
+#report_col1
+{ 
+width:100px;
+float:left;
+border-top:solid 1px #999  
+}
+#report_col2
+{ 
+width:350px;
+float:left;
+overflow:hidden;
+border-left:solid 1px #999;
+border-right:solid 1px #999;
+border-top:solid 1px #999;
+padding:0 3px 0 3px; 
+}
+#report_col3
+{
+width:100px;
+float:left;
+border-right:solid 1px #999;
+min-height:100%;
+border-top:solid 1px #999;  
+}
+#report_col4
+{
+width:100px;
+float:left;
+border-top:solid 1px #999;  
+}
+#reports_cols
+{
+clear:left;
+width:660px;
+float:left;	
+
+}
+/* REPORTS PHP FIL */
+/* hybris contain parts */
+
+.hybrisContainer
+{
+	width:100%;
+	min-height:100%;
+	height:100%;
+	height:auto!important;
+	background-color:#FFF;
+/* 	float:left; */
+	
+}
+.hybrisCopy
+{
+	width:900px;
+/* 	float:left;	 */
+}
+/* PRICE STYLES */
+.hybrisPriceContainer
+{
+
+/* float:left */
+}
+
+/* .hyPriceRow
+{
+width:903px;
+float:left;	
+height:227px;
+padding:10px 0 10px 0;
+height:85%;
+} */
+
+.hyAU,.hyNZ,.hyUK,.hyUS,.hyCA,.hyTBAU,.hyTBNZ,.hyRTMAU,.hyRTMAUWS,.hySNRAU,.hySNRNZ
+{
+width:175px;
+min-height:170px;
+margin-left:2px;	
+border:solid 1px #CCCCCC;
+/* float:left; */
+line-height:25px;
+font-size:11px;
+}
+.ARAU,.ARNZ,.ARRTM
+{
+width:175px;
+height:170px;
+margin-left:2px;	
+border:solid 1px #CCCCCC;
+float:left;
+line-height:25px;
+background-color:#f4e6e6;
+font-size:11px;
+}
+.ARAU_special,.ARNZ_special,.ARRTM_special
+{
+width:175px;
+height:120px;
+margin-left:2px;	
+border:solid 1px #CCCCCC;
+float:left;
+line-height:25px;
+background-color:#c9e6f7;
+font-size:11px;
+}
+.hyAU div,.hyNZ div, .hyUK div,.hyUS div,
+ .hyCA div, .hyTBAU div, 
+ .hyTBNZ div,.hyRTMAU div,.ARAU div,.hyRTMAUWS div,
+ .ARNZ div,.ARRTM div,.ARAU_special div,
+ .ARNZ_special div,.ARRTM_special div,.hySNRAU div,.hySNRNZ div
+{
+padding-left:5px;	
+
+}
+.hyAU:hover,.hyNZ:hover,.hyUK:hover,.hyUS:hover,.hyCA:hover,.hyTBAU:hover,.hyTBNZ:hover,.hyRTMAU:hover
+,.ARAU:hover,.ARNZ:hover,.ARRTM:hover
+{
+	border:solid 1px #000000;
+}
+.hyAU{background-color:#e0f7cd;}
+.hyNZ{background-color:#dadada;}
+.hyUK{background-color:#e6e9f3;}
+.hyUS{background-color:#e6e9f3;}
+.hyCA{background-color:#e6e9f3;}
+.hySNRAU{background-color:#d6ecf2;}
+.hySNRNZ{background-color:#d6ecf2;}
+
+.hyTB_Container
+{
+float:left;
+display: block;
+}
+
+.hyTBNZ
+{
+float:left;
+background-color:#e3e8ec;	
+
+}
+.hyRTM_Container
+{
+float:left;
+display: block;
+}
+.hySoanar_Container
+{
+float:left;
+display: block;
+}
+
+.hyRTMAU { background-color:#dedbdb;}
+.hyRTMAUWS { background-color:#c8dde8;}
+.countryDefine
+{
+font-size:13px;
+font-weight:bold;	
+}
+/* */
+#alert
+{
+	color:#C30;
+}
+.tdcol1
+{
+	background-color:#E2E2E2;
+}
+.logisticsholder
+{
+padding-left:10px;
+float:left;	
+}
+
+.logisticsholder div
+{
+float:left;
+padding-left:10px;	
+}
+
+
+

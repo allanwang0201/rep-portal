@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+<classPathEntry location="C:/Users/aw05/.m2/repository/mysql/mysql-connector-java/5.1.38/mysql-connector-java-5.1.38.jar"/>
+  <context id="context1">
+  
+    <jdbcConnection connectionURL="jdbc:mysql://mdm.live.jeg.domain:3306/jaycar" driverClass="com.mysql.jdbc.Driver" password="php4user%%" userId="php" />
+    <javaModelGenerator targetPackage="au.com.jaycar.mdm.entity" targetProject="rep-portal" />
+    <sqlMapGenerator targetPackage="au.com.jaycar.mdm.mapper" targetProject="rep-portal" />
+    <javaClientGenerator targetPackage="au.com.jaycar.mdm.mapping" targetProject="rep-portal" type="XMLMAPPER" />
+    <table schema="" tableName="medias">
+    </table>
+  </context>
+</generatorConfiguration>

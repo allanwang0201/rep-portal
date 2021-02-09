@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="First_TESTNG">
+  <test verbose="2" name="au.com.jaycar.mdm.service.impl.MdmProductsServiceImplTest" annotations="JDK">
+    <classes>
+      <class name="au.com.jaycar.mdm.service.impl.MdmProductsServiceImplTest"/>
+    </classes>
+  </test>
+</suite>

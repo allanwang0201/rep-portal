@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+			http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+			http://www.springframework.org/schema/mvc 
+			http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd 
+			http://www.springframework.org/schema/context 
+			http://www.springframework.org/schema/context/spring-context-3.0.xsd 
+			http://www.springframework.org/schema/aop 
+			http://www.springframework.org/schema/aop/spring-aop-3.0.xsd 
+			http://www.springframework.org/schema/tx 
+			http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+			http://www.springframework.org/schema/security
+        	http://www.springframework.org/schema/security/spring-security.xsd
+        
+        ">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+		<!-- 1. 加载数据库配置的属性文件 -->
+	<context:property-placeholder location="classpath:jdbc.properties"/>
+	
+	
+		<!-- 2. 包扫描dao,service -->
+	<context:component-scan base-package="au.com.jaycar"/>
+	
+	
+	
+	
+		<!-- 3. 数据源dataSource -->
+	<bean id="warehouse" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${warehouse.jdbc.driverClassName}"/>
+		<property name="url" value="${warehouse.jdbc.url}"/>
+		<property name="username" value="${warehouse.jdbc.username}"/>
+		<property name="password" value="${warehouse.jdbc.password}"/>
+		
+	    <property name="initialSize" value="3" />  
+	    <!-- 最小空闲值.当空闲的连接数少于阀值时，连接池就会预申请去一些连接，以免洪峰来时来不及申请  默认值是0 -->  
+	    <property name="minIdle" value="3" />  
+	    <!-- 最大空闲值.当经过一个高峰时间后，连接池可以慢慢将已经用不到的连接慢慢释放一部分，一直减少到maxIdle为止 ，0时无限制  默认值是8 -->  
+	    <property name="maxIdle" value="5" />  
+	    <!-- 连接池的最大值，同一时间可以从池分配的最多连接数量，0时无限制   默认值是8 -->  
+	    <property name="maxActive" value="15" />  
+	</bean>
+	
+	
+    <bean id="mdm" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${mdm.jdbc.driverClassName}"/>
+		<property name="url" value="${mdm.jdbc.url}"/>
+		<property name="username" value="${mdm.jdbc.username}"/>
+		<property name="password" value="${mdm.jdbc.password}"/>
+		
+  		<property name="initialSize" value="3" />  
+	    <!-- 最小空闲值.当空闲的连接数少于阀值时，连接池就会预申请去一些连接，以免洪峰来时来不及申请  默认值是0 -->  
+	    <property name="minIdle" value="3" />  
+	    <!-- 最大空闲值.当经过一个高峰时间后，连接池可以慢慢将已经用不到的连接慢慢释放一部分，一直减少到maxIdle为止 ，0时无限制  默认值是8 -->  
+	    <property name="maxIdle" value="5" />  
+	    <!-- 连接池的最大值，同一时间可以从池分配的最多连接数量，0时无限制   默认值是8 -->  
+    	<property name="maxActive" value="15" />  
+	</bean>
+	
+<!-- 	    client.setSoTimeout(3000); // socket read timeout  
+		client.setConnectionTimeout(1000);  
+		client.setDefaultMaxConnectionsPerHost(1000);  
+		client.setMaxTotalConnections(10);  
+		client.setFollowRedirects(false); // defaults to false  
+		client.setAllowCompression(true);  
+	 -->
+	<bean id="httpSolrClient"  class="org.apache.solr.client.solrj.impl.HttpSolrClient">
+		<constructor-arg index="0" value="http://localhost:8984/solr/mdm"/>
+	</bean>
+	
+	
+	
+	<bean id="repProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+	  <property name="locations">
+	    <list>
+	      <value>classpath:rep.properties</value>
+	    </list>
+	  </property>
+	</bean>
+	
+	
+<!-- 	
+	<bean id="oracleDataSource" class="oracle.jdbc.pool.OracleDataSource">
+	    <property name="dataSourceName" value="ds"/>
+	    <property name="URL" value="${warehouse.jdbc.url}"/>
+		<property name="user" value="${warehouse.jdbc.username}"/>
+		<property name="password" value="${warehouse.jdbc.password}"/>
+	</bean>
+
+	
+	
+	<bean id="mysqlDataSource" class="com.mysql.jdbc.Driver">
+		<property name="serverName" value="${mdm.jdbc.serverName}" />
+  		<property name="portNumber" value="${mdm.jdbc.portNumber}" />
+  		<property name="databaseName" value="${mdm.jdbc.databaseName}" />
+		<property name="user" value="${mdm.jdbc.username}"/>
+		<property name="password" value="${mdm.jdbc.password}"/>
+	</bean> -->
+	
+
+   <bean id="dataSource" class="au.com.jaycar.common.database.DynamicDataSource" >  
+          <property name ="targetDataSources">  
+                <map key-type ="java.lang.String">  
+                      <entry key= "mdmDataSource" value-ref ="mdm"></entry >  
+                      <entry key= "warehouseDataSource" value-ref ="warehouse"></entry >
+                </map >  
+          </property >
+          <property name ="defaultTargetDataSource" ref= "mdm"></property >
+   </bean >  
+	
+   
+   	
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">  
+        <property name = "dataSource" ref="dataSource"/>  
+	</bean>
+	
+   <!-- 4. SessionFactory -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<!-- 整合mybatis，包扫描 mapper文件 -->
+		<property name="configLocation" value="classpath:sqlMapConfig.xml"/>
+		
+		<property name="mapperLocations">
+          <array>
+              <value>classpath:au/com/jaycar/warehouse/mapper/*.xml</value>
+              <value>classpath:au/com/jaycar/mdm/mapper/*.xml</value>
+          </array>
+      	</property>
+	</bean>
+	
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory" />
+		<constructor-arg index="1" value="BATCH" />
+	</bean>
+	
+		<!-- 整合sping jdbcTemplate -->
+<!-- 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="warehouse"/>
+	</bean>
+	<bean id="sqlDao" class="au.com.jaycar.common.springdao.SqlDao">
+		<property name="jdbcTemplate" ref="jdbcTemplate"/>
+	</bean> -->
+	
+	
+		<!-- 5. 事务 -->
+	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<tx:method name="insert*" propagation="REQUIRED"/>
+			<tx:method name="update*" propagation="REQUIRED"/>
+			<tx:method name="delete*" propagation="REQUIRED"/>
+			<tx:method name="save*" propagation="REQUIRED"/>
+			
+			<tx:method name="find*" read-only="true"/>
+			<tx:method name="get*" read-only="true"/>
+			<tx:method name="view*" read-only="true"/>
+		</tx:attributes>
+	</tx:advice>
+	
+	<aop:config>
+		<aop:pointcut expression="execution(* au.com.jaycar.*.service.*.*(..))" id="txPointcut"/>
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
+	</aop:config>
+	
+	<import resource="webSecurityConfig.xml"/>
+	<import resource="activiti-config.xml"/>
+</beans>
